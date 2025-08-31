@@ -1,0 +1,17 @@
+{
+    "name": "admin/bibliotech",
+    "description": "Library system",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Admin\\Bibliotech\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "eder.ramosh",
+            "email": "eder.ramosh@gmail.com"
+        }
+    ],
+    "require": {}
+}
