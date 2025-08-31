@@ -12,10 +12,14 @@ $book4 = new Book("El principito", "Antoine de Saint-Exupéry", "9780156013987",
 $book5 = new Book("Don Quijote de la Mancha", "Miguel de Cervantes", "9788420412146", true, "Clásico");
 $book6 = new Book("Sapiens: De animales a dioses", "Yuval Noah Harari", "9788499926223", true, "Historia");
 $book7 = new Book("The Pragmatic Programmer", "Andrew Hunt y David Thomas", "9780201616224", true, "Programación");
+$book8 = new Book("Harry Potter y la piedra filosofal", "J.K. Rowling", "9788478884452", true, "Infantil");
+$book9 = new Book("Matilda", "Roald Dahl", "9780142410370", true, "Infantil");
+$book10 = new Book("La Odisea", "Homero", "9780140268867", true, "Clásico");
+$book11 = new Book("Moby Dick", "Herman Melville", "9781503280786", true, "Clásico");
 
 $library = new Library();
 
-$books = [$book1, $book2, $book3, $book4, $book5, $book6, $book7];
+$books = [$book1, $book2, $book3, $book4, $book5, $book6, $book7, $book8, $book9, $book10, $book11];
 
 foreach ($books as $book) {
     $library->addBook($book);
@@ -23,6 +27,7 @@ foreach ($books as $book) {
 
 $availableBooks = $library->listAvailableBooks();
 $searchByTitle = $library->searchByTitle("Cien años de soledad");
+$searchByAuthor = $library->searchByAuthor("George Orwell");
 $searchByCategory = $library->listBooksByCategory("Programación");
 $lendBook = $library->lendBook("1984");
 ?>
@@ -47,6 +52,18 @@ $lendBook = $library->lendBook("1984");
             </li>
         <?php endforeach; ?>
     </section>
+
+    <section>
+        <h1>Resultados de búsqueda por autor: "George Orwell"</h1>
+        <?php foreach ($searchByAuthor as $book): ?>
+            <li>
+                <strong><?= $book->getTitle(); ?></strong>
+                - <?= $book->getAuthor(); ?>
+                (<?= $book->getCategory(); ?>)
+            </li>
+        <?php endforeach; ?>
+    </section>
+
     <section>
         <h1>Resultados de búsqueda por título: "Cien años de soledad"</h1>
         <?php foreach ($searchByTitle as $book): ?>

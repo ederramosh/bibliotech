@@ -29,6 +29,16 @@ class Library {
         return $results;
     }
 
+    public function searchByAuthor($author) {
+        $results = [];
+        foreach ($this->books as $book) {
+            if (stripos($book->getAuthor(), $author) !== false) {
+                $results[] = $book;
+            }
+        }
+        return $results;
+    }
+
     public function listAvailableBooks() {
         return array_filter($this->books, function($book) {
             return $book->isAvailable();
