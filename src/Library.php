@@ -40,4 +40,14 @@ class Library {
             return strcasecmp($book->getCategory(), $category) === 0;
         });
     }
+
+    public function lendBook($title) {
+        foreach ($this->books as $book) {
+            if (strcasecmp($book->getTitle(), $title) === 0 && $book->isAvailable()) {
+                $book->setAvailability(false);
+                return true;
+            }
+        }
+        return false;
+    }
 }
